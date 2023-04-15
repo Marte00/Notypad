@@ -32,6 +32,16 @@
   <h2>Auteurs</h2>
   <ul>
     <li>
+      Lazar Andjelovic (<a href="https://github.com/razal563" target="_new"
+        >https://github.com/razal563</a
+      >)
+    </li>
+    <li>
+      Zicheng Fang (<a href="https://github.com/Marte00" target="_new"
+        >https://github.com/Marte00</a
+      >)
+    </li>
+    <li>
       Mathieu Rodrigues (<a href="https://github.com/MathieuRodri" target="_new"
         >https://github.com/MathieuRodri</a
       >)
