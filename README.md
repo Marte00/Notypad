@@ -32,23 +32,8 @@
   <h2>Auteurs</h2>
   <ul>
     <li>
-      John Doe (<a href="https://github.com/johndoe" target="_new"
-        >https://github.com/johndoe</a
-      >)
-    </li>
-    <li>
       Mathieu Rodrigues (<a href="https://github.com/MathieuRodri" target="_new"
         >https://github.com/MathieuRodri</a
-      >)
-    </li>
-    <li>
-      Bob Smith (<a href="https://github.com/bobsmith" target="_new"
-        >https://github.com/bobsmith</a
-      >)
-    </li>
-    <li>
-      Alice Jones (<a href="https://github.com/alicejones" target="_new"
-        >https://github.com/alicejones</a
       >)
     </li>
   </ul>
