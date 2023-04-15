@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--CSS-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+    <!--Font Awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    {% if request.user.is_authenticated %}
+    <div class="container">
+      <nav>
+        <button id="hamburger" class="hamburger"><i class="fa-solid fa-bars"></i></button>
+        <form>
+          <div id="folders" class="folders">
+            <div class="folder">
+              <button>All</button>
+            </div>
+            {% for fold in folders %}
+            <div class="folder">
+              <button name="button" value="{{ fold.title }}">{{ fold.title }}</button>
+            </div>
+            {% endfor %}
+            <div class="logout">
+              <a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+          </div>
+        </form>
+        <div id="files"  class="files">
+          <form>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="search" type="search" name="recherche" placeholder="Search Notes...." />
+          </form>
+          {% for doc in documents %}
+          <div class="file">
+            <a href="{% url 'editor' %}?docid={{ doc.id }}">
+              <h2>{{ doc.title }}</h2>
+              {% autoescape off %}
+              <div class="resume">{{ doc.content }}</div>
+              {% endautoescape %}
+            </a>
+          </div>
+          {% endfor %}
+          <a class="addMore" href="{% url 'editor' %}?docid=0"
+            ><i class="fa-solid fa-plus"></i
+          ></a>
+        </div>
+      </nav>
+      <main id="main">
+        <header> 
+          <!-- Options buttons -->
+          <div class="options">
+            <!-- Heading -->
+            <select id="formatBlock"  class="adv-option-button">
+              <option value="H1">H1</option>
+              <option value="H2">H2</option>
+              <option value="H3">H3</option>
+              <option value="H4">H4</option>
+              <option value="H5">H5</option>
+              <option value="H6">H6</option>
+            </select>
+
+            <!-- Font -->
+            <select id="fontName"  class="adv-option-button"></select>
+
+            <select id="fontSize"  class="adv-option-button"></select>
+            
+            <button id="bold" class="option-button format">
+              <i class="fa-solid fa-bold"></i>
+            </button>
+
+            <button id="italic" class="option-button format">
+              <i class="fa-solid fa-italic"></i>
+            </button>
+            
+            <button id="underline" class="option-button format">
+              <i class="fa-solid fa-underline"></i>
+            </button>
+
+            <button id="strikethrough" class="option-button format">
+              <i class="fa-solid fa-strikethrough"></i>
+            </button>
+
+            <!-- Color -->
+            <div class="input-wrapper">
+              <input type="color" id="foreColor"  class="adv-option-button"/>
+              <i class="fa-solid fa-font"></i>
+            </div>
+
+            <div class="input-wrapper">
+              <input type="color" id="backColor"  class="adv-option-button"/>
+              <i class="fa-solid fa-fill"></i>
+            </div>
+
+            <!-- List -->
+            <button id="insertOrderedList" class="option-button">
+              <i class="fa-solid fa-list-ol"></i>
+            </button>
+
+            <button id="insertUnorderedList" class="option-button">
+              <i class="fa-solid fa-list-ul"></i>
+            </button>
+
+            <!-- Alignement-->
+            <button id="justifyLeft" class="option-button align">
+              <i class="fa-solid fa-align-left"></i>
+            </button>
+
+            <button id="justifyCenter" class="option-button align">
+              <i class="fa-solid fa-align-center"></i>
+            </button>
+
+            <button id="justifyRight" class="option-button align">
+              <i class="fa-solid fa-align-right"></i>
+            </button>
+
+            <button id="justifyFull" class="option-button align">
+              <i class="fa-solid fa-align-justify"></i>
+            </button>
+            
+            <button id="indent" class="option-button spacing">
+              <i class="fa-solid fa-indent"></i>
+            </button>
+
+            <button id="outdent" class="option-button spacing">
+              <i class="fa-solid fa-outdent"></i>
+            </button>
+
+            <button id="superscript" class="option-button script">
+              <i class="fa-solid fa-superscript"></i>
+            </button>
+
+            <button id="subscript" class="option-button script">
+              <i class="fa-solid fa-subscript"></i>
+            </button>
+
+            <button id="createLink"  class="adv-option-button">
+              <i class="fa fa-link"></i>
+            </button>
+
+            <button id="unlink" class="option-button">
+              <i class="fa fa-unlink"></i>
+            </button>
+
+
+            <!-- undo/redo -->
+            <button id="undo" class="option-button">
+              <i class="fa-solid fa-rotate-left"></i>
+            </button>
+
+            <button id="redo" class="option-button">
+              <i class="fa-solid fa-rotate-right"></i>
+            </button>
+
+          </div>
+        </header>
+
+        <div class="page">
+          <form method="post" id="note-form" action="{% url 'editor' %}">
+            {% csrf_token %}
+            <input type="hidden" name="docid" value="{{ docid }}" />
+
+            <div class="title-folder">
+              <input
+              type="text"
+              name="title"
+              placeholder="Add a Title here..."
+              {% if document %}
+              value="{{document.title}}"
+              {% endif %}
+              />
+  
+              <select name="folder">
+                <option value="0">--</option>
+                {% for fold in folders %}
+                <option value="{{ fold.id }}" {% if fold.id == folder.id %} selected {% endif %}>{{ fold.title }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            
+
+            <input type="hidden" name="content" id="content-input">
+            {% autoescape off %}
+            <div id="text-input" contenteditable="true">
+              {% if document %}{{document.content}}{% endif %}
+            </div>
+            {% endautoescape %}
+            
+            <div class="save-delete">
+              <button type="submit">Save</button>
+              {% if document %}
+              <a href="{% url 'delete_document' document.id %}">Delete</a>
+              {% endif %}
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+    {% endif %}
+    <script src="{% static 'interact.js' %}"></script>
+    <script src="{% static 'script.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,347 @@
+:root{
+    --bgColor: #fff;
+    --bgColor2: #000;
+    --color: #000;
+    --color2: #fff;
+}
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--bgColor);
+    color: var(--color);
+    font-family: 'Montserrat', sans-serif;
+}
+button{
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+button, span, p, h1, h2, input{
+    letter-spacing: .5px;
+}
+input, textarea{
+    border: none;
+    background: none;
+}
+textarea{
+    resize: none;
+    height: 100%;
+}
+input:focus, textarea:focus, [contenteditable]{
+    outline: none;
+}
+.container{
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--bgColor);
+    max-width: 1920px;
+}
+.hamburger{
+    position: absolute;
+    background-color: var(--bgColor2);
+    aspect-ratio: 1/1;
+    padding: 1rem;
+    border-radius: 0;
+    border-bottom-right-radius: 1rem;
+    z-index: 2;
+}
+.hamburger:hover{
+    background-color: #ffffff;
+}
+.hamburger:hover i{
+    background-color: var(--bgColor);
+    color: var(--color);
+}
+.hamburger i {
+    color: var(--color2);
+    font-size: 1.5rem;
+}
+nav{
+    display: flex;
+}
+.folders{
+    position: relative;
+    height: 100%;
+    width: 13rem;
+    padding-top: 4rem;
+    padding-inline: 2rem;
+    background-color: var(--bgColor2);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: 100ms ease-in-out;
+}
+.folders > *{
+    z-index: 1;
+}
+.folders::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(./assets/background.gif);
+    opacity: 0.5;
+}
+.logout{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    padding-bottom: 2rem;
+}
+.logout *{
+    color: var(--color2);
+    font-weight: 700;
+}
+.folder button{
+    padding-inline: calc(1rem + 4px);
+    background: none;
+    color: var(--color2);
+    white-space: nowrap;
+    font-weight: 700;
+    width: 100%;
+    text-align: left;
+}
+.folder button:hover{
+    border-left: 4px solid white;
+    padding-inline: 1rem;
+    
+}
+.files{
+    height: 100%;
+    width: 17rem;
+    position: relative;
+    background-color: var(--bgColor);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border-right: 1px solid var(--bgColor2);
+    transition: 100ms ease-in-out;
+}
+.files form{
+    margin:  2rem 2rem 1rem 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--bgColor2);
+    display: flex;
+    gap: .5rem;
+}
+.files form input{
+    border: none;
+    background: none;
+    font-weight: 700;
+    width: 100%;
+}
+.files form input::placeholder{
+    color: hsl(0, 0%, 0%, .3);
+}
+.file a{
+    display: block;
+    width: 100%;
+    background: var(--bgColor);
+    color: var(--color);
+    font-weight: 700;
+    padding: .5rem 2rem;
+}
+.file a:hover{
+    display: block;
+    background: var(--bgColor2);
+    color: var(--color2);
+
+}
+.file h2{
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    padding-bottom: .5rem;
+}
+.file .resume{
+    height: 1rem;
+    overflow: hidden;
+    font-size: .8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+}
+.files .addMore{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999rem;
+    background-color: var(--bgColor2);
+    color: var(--color2);
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    padding: 2rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    width: 100%;
+}
+.title-folder{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: rgba(0, 0, 0, 0.25) 1px dotted;
+}
+.save-delete{
+    display: flex;
+    gap: 1rem;
+}
+.save-delete > *{
+    flex: 1;
+    height: 2rem;
+    color: var(--color);
+    font-family: 'Montserrat';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .25rem;
+}
+.save-delete :nth-child(1){
+    background-color: var(--bgColor2);
+    color: var(--color2);
+}
+.save-delete :nth-child(2){
+    background-color: #f5f5f5;
+    color: var(--color);
+}
+.page{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding-block: 1rem 0;
+}
+.page form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.page input[name='title']{
+    font-size: 1.7rem;
+    flex: 1;
+}
+.options{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .1rem;
+    padding-bottom: 1rem;
+}
+
+button{
+    border-radius: 3px;
+    border: none;
+    background-color: white;
+    outline: none;
+    color: #020929;
+}
+
+.options button{
+    padding: .5rem;
+}
+
+select{
+    padding: 7px;
+    width: fit-content;
+    background-color: #f5f5f5;
+    border:none;
+    border-radius: 3px;
+}
+
+.options label, 
+.options select{
+    font-family: "Montserrat", sans-serif;
+}
+.input-wrapper{
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 8px;
+}
+.input-wrapper :nth-child(2){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color2);
+    pointer-events: none;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+}
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+	width: 32px;
+	height: 32px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border-radius: 3px;
+	border: none;
+}
+#text-input{
+    height: 100%;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    overflow: auto;
+    min-height: 20rem;
+    margin-top: 10px;
+}
+#text-input img{
+    width: 100%;
+    max-width: 500px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+.options > *:not(.input-wrapper):hover{
+    background-color: var(--bgColor2);
+    color: var(--color2);
+}
+#text-input u{
+    text-decoration: underline;
+}
+#text-input ul, #text-input ol{
+    padding-left: 1rem;
+}
+#text-input strike{
+    text-decoration:line-through;
+}
+.folders.hide{
+    width: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.files.hide{
+    width: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border: none;
+}
+main.hide{
+    padding-left: 4rem;
+}
