@@ -40,6 +40,6 @@
   <h2>Licence</h2>
   <p>
     Ce projet est sous licence MIT - voir le fichier
-    <a href="LICENSE" target="_new">LICENSE</a> pour plus de détails.
+    <a href="https://github.com/MathieuRodri/Notypad/blob/main/LICENSE" target="_new">LICENSE</a> pour plus de détails.
   </p>
 </div>
